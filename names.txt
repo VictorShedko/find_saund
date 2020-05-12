@@ -2,3 +2,6 @@ adele.wav
 blackbird.wav
 bloodtype.wav
 system.wav
+ru.wav
+eye.wav
+doi.wav
