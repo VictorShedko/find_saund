@@ -46,25 +46,15 @@ def record_audio(output_filename):
     print("Starting of writing audio")
     sd.wait()
     sd.play(myrecording, fs)
-
+    sd.wait()
     print("Writing is end")
     write(output_filename, fs, myrecording)
 
 
 def find_most_similar(filename):
-    y, sr = librosa.load(filename, sr=44100)  # в идеале с микро взять
-    # x = y
-    # X = librosa.stft(x)
-    # Xdb = librosa.amplitude_to_db(abs(X))
-    # plt.figure(figsize=(14, 5))
-    # librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='log')
-    # plt.colorbar()
+    y, sr = librosa.load(filename, sr=44100)
 
-    # plt.figure(figsize=(14, 5))
-    # librosa.display.waveplot(y, sr=sr)
-    # plt.show()
-
-    lib = get_library()  # y- то шо нам нужно чистая как какаин вейформа sr частота дискретизации
+    lib = get_library()
 
     num_in_library, guessed_track = get_winner(y, lib)
     return guessed_track[2]
